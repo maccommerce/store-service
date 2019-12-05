@@ -103,5 +103,5 @@ dependencies {
     }
 
     integrationTestImplementation("org.koin:koin-test:2.0.1")
-    integrationTestImplementation("org.http4k:http4k-client-apache:3.189.0")
+    integrationTestImplementation("org.http4k:http4k-client-apache:3.200.0")
 }
