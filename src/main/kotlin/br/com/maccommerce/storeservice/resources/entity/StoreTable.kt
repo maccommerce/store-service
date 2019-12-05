@@ -4,7 +4,7 @@ import br.com.maccommerce.storeservice.resources.utils.VARCHAR_MAX
 import io.azam.ulidj.ULID.ULID_LENGTH
 import org.jetbrains.exposed.sql.Table
 
-object StoreTable : Table("category") {
+object StoreTable : Table("store") {
 
     val id = varchar("id", ULID_LENGTH).primaryKey()
     val name = varchar("name", VARCHAR_MAX)
