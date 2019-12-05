@@ -1,0 +1,35 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: store-service-gateway
+spec:
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+
+---
+
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: store-service
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - store-service-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /stores
+    route:
+    - destination:
+        host: store-service
+        port:
+          number: 7000
