@@ -8,7 +8,7 @@ fun ResultRow.toStore() = Store(
     id = this[StoreTable.id],
     name = this[StoreTable.name],
     description = this[StoreTable.description],
-    address = this[StoreTable.adderss],
+    address = this[StoreTable.address],
     number = this[StoreTable.number],
     postalCode = this[StoreTable.postalCode]
 )
