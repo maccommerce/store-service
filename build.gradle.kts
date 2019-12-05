@@ -11,6 +11,7 @@ plugins {
     application
     kotlin("jvm") version "1.3.61"
     id("org.flywaydb.flyway") version "6.0.4"
+    id("org.unbroken-dome.test-sets") version "2.2.1"
 }
 
 group = "br.com.maccommerce"
@@ -32,6 +33,16 @@ sourceSets {
         }
     }
 }
+
+testSets {
+    create("integrationTest")
+}
+
+val integrationTestImplementation = configurations["integrationTestImplementation"]
+    .extendsFrom(configurations["testImplementation"])
+
+val integrationTestRuntimeOnly = configurations["integrationTestRuntimeOnly"]
+    .extendsFrom(configurations["testRuntimeOnly"])
 
 tasks {
     withType<Jar> {
@@ -90,4 +101,7 @@ dependencies {
         exclude(group = "org.junit.platform")
         exclude(group = "org.jetbrains.kotlin")
     }
+
+    integrationTestImplementation("org.koin:koin-test:2.0.1")
+    integrationTestImplementation("org.http4k:http4k-client-apache:3.189.0")
 }
