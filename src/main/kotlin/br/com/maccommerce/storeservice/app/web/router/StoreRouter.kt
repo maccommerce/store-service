@@ -13,7 +13,7 @@ object StoreRouter : KoinComponent {
 
     private val controller by inject<StoreController>()
 
-    operator fun invoke(): Collection<RoutingHttpHandler> = listOf(
+    operator fun invoke(): List<RoutingHttpHandler> = listOf(
         "/" post { controller.save(it) },
 
         "/{id}" put  { controller.update(it) },
