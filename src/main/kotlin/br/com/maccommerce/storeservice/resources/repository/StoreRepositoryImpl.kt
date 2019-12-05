@@ -18,6 +18,9 @@ class StoreRepositoryImpl : StoreRepository {
                 it[id] = ulid
                 it[name] = store.name
                 it[description] = store.description
+                it[address] = store.address
+                it[number] = store.number
+                it[postalCode] = store.postalCode
             }.let { store.copy(id = ulid) }
         }
     }.also { logger.info("Store persisted successfully with id = ${it.id}") }
