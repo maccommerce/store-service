@@ -31,7 +31,7 @@ jobs:
 
       - run:
           name: Running tests
-          command: ./gradlew clean test
+          command: ./gradlew clean test integrationTest
 
       - save_cache:
           paths:
